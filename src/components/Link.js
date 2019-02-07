@@ -7,7 +7,7 @@ const Link = ({ children, to }) => {
   return (
     internal
       ? <GatsbyLink to={to}>{children}</GatsbyLink>
-      : <a href={to} target='_blank'>{children}</a>
+      : <a href={to}>{children}</a>
   )
 }
 
