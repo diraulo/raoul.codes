@@ -19,7 +19,7 @@ export default ({ children }) => (
       </Link>
 
       <ul style={{ listStyle: 'none', marginLeft: '0' }}>
-        {navLinks.map(({ to, text }) => <NavItem to={to}>{text}</NavItem>)}
+        {navLinks.map(({ to, text }) => <NavItem key={text} to={to}>{text}</NavItem>)}
       </ul>
     </header>
 
