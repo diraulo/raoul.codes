@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
 import { rhythm } from '../utils/typography'
 
@@ -8,15 +8,17 @@ import Layout from '../components/Layout'
 const IndexPage = ({ data }) => (
   <Layout>
     {
-      data.allMarkdownRemark.edges.map(({ node: { id, frontmatter, excerpt } }) => (
+      data.allMarkdownRemark.edges.map(({ node: { id, frontmatter, fields, excerpt } }) => (
         <div key={id}>
-          <h3 style={{ marginBottom: `${rhythm(1 / 2)}` }}>
-            {frontmatter.title}{' '} <br />
+          <Link to={fields.slug}>
+            <h3 style={{ marginBottom: `${rhythm(1 / 2)}` }}>
+              {frontmatter.title}{' '} <br />
 
-            <span style={{ color: '#bbb', fontSize: `${rhythm(1 / 2)}` }}>
-              {frontmatter.date}
-            </span>
-          </h3>
+              <span style={{ color: '#bbb', fontSize: `${rhythm(1 / 2)}` }}>
+                {frontmatter.date}
+              </span>
+            </h3>
+          </Link>
           <p>{excerpt}</p>
         </div>
       ))
@@ -34,6 +36,9 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
           }
           excerpt
         }
