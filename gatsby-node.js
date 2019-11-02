@@ -39,6 +39,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = result.data.allGhostPost.edges
 
   // Load templates
+  const blogTemplate = path.resolve('./src/templates/blog.js')
   const postTemplate = path.resolve('./src/templates/post.js')
 
   // Create post pages
@@ -52,5 +53,12 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: node.slug
       }
     })
+  })
+
+  // Create blog index
+  createPage({
+    path: `/blog`,
+    component: blogTemplate,
+    items: posts
   })
 }
