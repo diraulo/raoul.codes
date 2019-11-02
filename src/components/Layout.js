@@ -6,6 +6,7 @@ import NavItem from './NavItem'
 import "./layout.css"
 
 const navLinks = [
+  { to: '/about', text: 'About' },
   { to: '/blog', text: 'Blog' },
   { to: '//github.com/diraulo', text: 'GitHub' },
   { to: '//twitter.com/diraulo', text: 'Twitter' },
