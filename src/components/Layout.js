@@ -14,11 +14,11 @@ import NavItem from './NavItem'
 import "./layout.css"
 
 const navLinks = [
-  { to: '/about', text: 'About', icon: '' },
-  { to: '/blog', text: 'Blog', icon: '' },
-  { to: '//github.com/diraulo', text: 'github', icon: faGithub },
-  { to: '//twitter.com/diraulo', text: 'twitter', icon: faTwitter },
-  { to: '//za.linkedin.com/in/diraul', text: 'linkedin', icon: faLinkedinIn }
+  { to: '/about', text: 'About', cssClass: '', icon: '', ariaLabel: 'Read more about me' },
+  { to: '/blog', text: 'Blog', cssClass: '', icon: '', ariaLabel: 'Visit my blog' },
+  { to: '//github.com/diraulo', cssClass: 'github', icon: faGithub, ariaLabel: 'View my GitHub profile' },
+  { to: '//twitter.com/diraulo', cssClass: 'twitter', icon: faTwitter, ariaLabel: 'Read some of my tweets' },
+  { to: '//za.linkedin.com/in/diraul', text: 'linkedin', icon: faLinkedinIn, ariaLabel: 'View my LinkedIn profile' }
 ]
 
 export default ({ children }) => (
@@ -30,9 +30,9 @@ export default ({ children }) => (
 
       <ul style={{ listStyle: 'none', marginLeft: '0' }}>
         {
-          navLinks.map(({ to, text, icon }) => {
+          navLinks.map(({ to, text, cssClass, icon, ariaLabel }) => {
             return (
-              <NavItem key={text} to={to} className={text}>
+              <NavItem key={text} to={to} className={cssClass} ariaLabel={ariaLabel}>
                 {icon !== '' ? <FontAwesomeIcon icon={icon} width="0" /> : text}
               </NavItem>
             )
