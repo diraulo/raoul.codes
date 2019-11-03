@@ -1,3 +1,22 @@
 a {
-  color: #483b3a !important;
+  color: hsl(200,55%,58%);
+}
+
+.github:hover,
+.linkedin:hover,
+.linkedin-in:hover,
+.twitter:hover {
+  box-shadow: 0 0 0 0 currentColor;
+}
+
+.github:hover {
+  color: hsl(0, 0%, 0%, 0.8)
+}
+.twitter:hover {
+  color: #00aced;
+}
+
+.linkedin:hover,
+.linkedin-in:hover {
+  color: #0073b1;
 }
