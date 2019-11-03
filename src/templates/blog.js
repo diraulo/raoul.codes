@@ -26,7 +26,7 @@ const Blog = ({ data }) => {
                 <h3 style={{ marginBottom: `${rhythm(1 / 2)}` }}>
                   {title}{' '} <br />
 
-                  <span style={{ color: '#bbb', fontSize: `${rhythm(1 / 2)}` }}>
+                  <span style={{ color: '#737373', fontSize: `${rhythm(1 / 2)}` }}>
                     {published_at_pretty}
                   </span>
                 </h3>
