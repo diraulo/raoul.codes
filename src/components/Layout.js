@@ -1,16 +1,24 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faGithub,
+  faLinkedinIn,
+  faTwitter
+} from '@fortawesome/free-brands-svg-icons'
+
 import NavItem from './NavItem'
 
 import "./layout.css"
 
 const navLinks = [
-  { to: '/about', text: 'About' },
-  { to: '/blog', text: 'Blog' },
-  { to: '//github.com/diraulo', text: 'GitHub' },
-  { to: '//twitter.com/diraulo', text: 'Twitter' },
-  { to: '//za.linkedin.com/in/diraul', text: 'LinkedIn' }
+  { to: '/about', text: 'About', icon: '' },
+  { to: '/blog', text: 'Blog', icon: '' },
+  { to: '//github.com/diraulo', text: 'github', icon: faGithub },
+  { to: '//twitter.com/diraulo', text: 'twitter', icon: faTwitter },
+  { to: '//za.linkedin.com/in/diraul', text: 'linkedin', icon: faLinkedinIn }
 ]
 
 export default ({ children }) => (
@@ -21,7 +29,15 @@ export default ({ children }) => (
       </Link>
 
       <ul style={{ listStyle: 'none', marginLeft: '0' }}>
-        {navLinks.map(({ to, text }) => <NavItem key={text} to={to}>{text}</NavItem>)}
+        {
+          navLinks.map(({ to, text, icon }) => {
+            return (
+              <NavItem key={text} to={to} className={text}>
+                {icon !== '' ? <FontAwesomeIcon icon={icon} /> : text}
+              </NavItem>
+            )
+          })
+        }
       </ul>
     </header>
 

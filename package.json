@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "author": "Raoul Diffouo <hi@diraulo.me>",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "gatsby": "^2.17.7",
     "gatsby-image": "^2.2.30",
     "gatsby-plugin-manifest": "^2.2.26",
