@@ -64,7 +64,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create blog index
   createPage({
-    path: `/blog`,
+    path: `/`,
     component: blogTemplate,
     items: posts
   })

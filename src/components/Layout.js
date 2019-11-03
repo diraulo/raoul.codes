@@ -15,7 +15,7 @@ import "./layout.css"
 
 const navLinks = [
   { to: '/about', text: 'About', cssClass: '', icon: '', ariaLabel: 'Read more about me' },
-  { to: '/blog', text: 'Blog', cssClass: '', icon: '', ariaLabel: 'Visit my blog' },
+  { to: '/', text: 'Blog', cssClass: '', icon: '', ariaLabel: 'Visit my blog' },
   { to: '//github.com/diraulo', cssClass: 'github', icon: faGithub, ariaLabel: 'View my GitHub profile' },
   { to: '//twitter.com/diraulo', cssClass: 'twitter', icon: faTwitter, ariaLabel: 'Read some of my tweets' },
   { to: '//za.linkedin.com/in/diraul', cssClass: 'linkedin', icon: faLinkedinIn, ariaLabel: 'View my LinkedIn profile' }
