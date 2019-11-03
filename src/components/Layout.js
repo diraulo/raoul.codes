@@ -33,7 +33,7 @@ export default ({ children }) => (
           navLinks.map(({ to, text, icon }) => {
             return (
               <NavItem key={text} to={to} className={text}>
-                {icon !== '' ? <FontAwesomeIcon icon={icon} /> : text}
+                {icon !== '' ? <FontAwesomeIcon icon={icon} width="0" /> : text}
               </NavItem>
             )
           })
