@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 
@@ -22,7 +22,7 @@ const Blog = ({ data }) => {
         {
           posts.map(({ node: { id, slug, title, excerpt, published_at_pretty } }) => (
             <div key={id}>
-              <Link to={slug}>
+              <a href={slug}>
                 <h3 style={{ marginBottom: `${rhythm(1 / 2)}` }}>
                   {title}{' '} <br />
 
@@ -30,7 +30,7 @@ const Blog = ({ data }) => {
                     {published_at_pretty}
                   </span>
                 </h3>
-              </Link>
+              </a>
               <p>{excerpt}</p>
             </div>
           ))
