@@ -113,3 +113,25 @@ export const ghostPageFields = graphql`
     codeinjection_styles
   }
 `
+
+// Used for site's settings
+export const ghostSettingsFields = graphql`
+  fragment GhostSettingsFields on GhostSettings {
+    title
+    description
+    logo
+    icon
+    cover_image
+    facebook
+    twitter
+    lang
+    timezone
+    codeinjection_head
+    codeinjection_foot
+    codeinjection_styles
+    navigation {
+      label
+      url
+    }
+  }
+`
