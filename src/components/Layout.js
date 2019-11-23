@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { Link } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -13,7 +14,9 @@ import NavItem from './NavItem'
 
 import "./layout.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ data, children }) => {
+  const site = data.allGhostSettings.edges[0].node
+
   const navLinks = [
     { to: '/about', text: 'About', cssClass: '', icon: '', ariaLabel: 'Read more about me' },
     { to: '/', text: 'Blog', cssClass: '', icon: '', ariaLabel: 'Visit my blog' },
@@ -25,7 +28,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <Helmet>
-        <html lang="en"></html>
+        <html lang={site.lang} />
+        <script>{site.codeinjection_head}</script>
       </Helmet>
 
       <div style={{ margin: '3rem auto', maxWidth: 650, padding: '0 1rem' }}>
@@ -53,4 +57,32 @@ const Layout = ({ children }) => {
   )
 }
 
-export default Layout
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+  data: PropTypes.shape({
+    file: PropTypes.object,
+    allGhostSettings: PropTypes.object.isRequired,
+  }).isRequired
+}
+
+const LayoutSettingsQuery = props => (
+  <StaticQuery
+    query={
+      graphql`
+        query GhostSettings {
+          allGhostSettings {
+            edges {
+              node {
+                ...GhostSettingsFields
+              }
+            }
+          }
+        }
+      `
+    }
+
+    render={data => <Layout data={data} {...props} />}
+  />
+)
+
+export default LayoutSettingsQuery
