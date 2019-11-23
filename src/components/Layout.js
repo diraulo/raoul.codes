@@ -30,6 +30,7 @@ const Layout = ({ data, children }) => {
       <Helmet>
         <html lang={site.lang} />
         <script>{site.codeinjection_head}</script>
+        <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
       </Helmet>
 
       <div style={{ margin: '3rem auto', maxWidth: 650, padding: '0 1rem' }}>
