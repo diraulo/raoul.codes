@@ -3,8 +3,11 @@ import PropTypes from 'prop-types'
 
 import { rhythm } from '../utils/typography'
 
+import { readingTime as readingTimeHelper } from '@tryghost/helpers'
+
 const PostCard = ({ post }) => {
   const { slug, title, published_at_pretty, excerpt, tags } = post
+  const readingTime = readingTimeHelper(post)
 
   return (
     <>
@@ -16,7 +19,7 @@ const PostCard = ({ post }) => {
           <br />
           {title} <br />
           <span style={{ color: '#737373', fontSize: `${rhythm(1 / 2)}` }}>
-            {published_at_pretty}
+            {published_at_pretty} - {readingTime}
           </span>
         </h3>
       </a>
