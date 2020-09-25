@@ -2,9 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import { Layout } from '../components'
-
-import { rhythm } from '../utils/typography'
+import { Layout, PostCard } from '../components'
 
 /**
  * Blog page
@@ -19,31 +17,9 @@ const Blog = ({ data }) => {
   return (
     <>
       <Layout>
-        {posts.map(
-          ({
-            node: { id, slug, title, excerpt, published_at_pretty, tags },
-          }) => (
-            <div key={id}>
-              <a href={slug}>
-                <h3 style={{ marginBottom: `${rhythm(1 / 2)}` }}>
-                  <span
-                    style={{ color: '#737373', fontSize: `${rhythm(1 / 2)}` }}
-                  >
-                    {tags[0].name}
-                  </span>{' '}
-                  <br />
-                  {title} <br />
-                  <span
-                    style={{ color: '#737373', fontSize: `${rhythm(1 / 2)}` }}
-                  >
-                    {published_at_pretty}
-                  </span>
-                </h3>
-              </a>
-              <p>{excerpt}</p>
-            </div>
-          )
-        )}
+        {posts.map(({ node }) => (
+          <PostCard key={node.id} post={node} />
+        ))}
       </Layout>
     </>
   )
